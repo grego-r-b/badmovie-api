@@ -1,14 +1,17 @@
-document.querySelector('button').addEventListener('click', apiRequest)
+document.querySelector('button').addEventListener('click', getMovie)
 
-async function apiRequest(){
-    const badMovieName = document.querySelector('input').value
-    try{
-        const response = await fetch(`https://https://badmovie-api.herokuapp.com/api/${badMovieName}`)
-        const data = await response.json()
-
-        console.log(data)
-        document.querySelector('h2').innerText = data.movieName
-    }catch(error){
-        console.log(error)
-    }
+function getMovie() {
+    const input = document.querySelector('input').value.replaceAll(' ', '+')
+    const url = `/api/${input}`
+    
+    console.log(`Input is ${input}.`)
+    fetch(url)
+        .then(res => res.json()) // parse response as JSON
+        .then(data => {
+            console.log(data)
+            document.querySelector('h2').innerText = data.location
+        })
+        .catch(err => {
+            console.log(`error ${err}`)
+        });
 }
