@@ -9,7 +9,7 @@ function getMovie() {
         .then(res => res.json()) // parse response as JSON
         .then(data => {
             console.log(data)
-            document.querySelector('h2').innerText = data.location
+            document.querySelector('h2').innerText = data.thumbsDown
         })
         .catch(err => {
             console.log(`error ${err}`)
