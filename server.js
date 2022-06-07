@@ -31,9 +31,9 @@ app.get('/', (request,response)=>{
 })
 
 app.get('/api/:name', (request,response)=>{
-    const badmovieName = request.params.name.toLowerCase()
-    if( badmovie[badmovieName] ){
-       response.json(badmovie[badmovieName]) 
+    const badMovieName = request.params.name.toLowerCase()
+    if( badmovie[badMovieName] ){
+       response.json(badmovie[badMovieName]) 
     }else{
         response.json(badmovie['unknown'])
     }
